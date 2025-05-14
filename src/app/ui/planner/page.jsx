@@ -3,44 +3,45 @@ import React, { useEffect, useState } from 'react';
 const apiData = [
   {
     title: "Wedding Planning Essentials",
-    button: "Shop Now",
+    button: "Book Your Slot",
     images: [
       "/images/we1.jpg",
-      "https://images.unsplash.com/photo-1521747116042-5a810fda9664?ixlib=rb-1.2.1&q=80&w=400",
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400"
+      "/images/we2.jpg",
+      "/images/we3.jpg"
     ]
   },
   {
     title: "Birthday Party Decorations",
-    button: "Explore Decorations",
+    button: "Book Your Slot",
     images: [
       "/images/b1.jpg",
       "/images/b2.jpg",
-      "images/b3.jpg"
+      "/images/b3.jpg",
     ]
   },
   {
-    title: "Wedding Cakes",
-    button: "Order Cakes",
+    title: "Reception",
+    button: "Book Your Slot",
     images: [
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400",
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400",
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400"
+     "/images/re1.jpg",
+      "/images/re2.jpg",
+      "/images/re3.jpg",
     ]
   },
   {
     title: "Navratri Celebrations",
-    button: "Navratri Celebrations",
+    button: "Book Your Slot",
     images: [
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400",
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400",
-      "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=80&w=400"
+       "/images/nv2.jpg",
+      "/images/nv4.jpg",
+      "/images/nv8.jpg",
     ]
   }
 ];
 
 const Planner = () => {
-  const [imgIndexes, setImgIndexes] = useState([0, 0, 0]);
+  const [imgIndexes, setImgIndexes] = useState(new Array(apiData.length).fill(0));
+
 
   useEffect(() => {
     const interval = setInterval(() => {

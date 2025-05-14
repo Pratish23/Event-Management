@@ -4,16 +4,18 @@ import React, { useState, useEffect, useRef } from "react";
 const WeddingIntro = () => {
   const images = [
     {
+      type: "image",
       src: "images/saveimage23.jpg",
       alt: "Wedding arch with pink flowers",
     },
     {
-      src: "https://storage.googleapis.com/a1aa/image/364d23da-e698-446c-78c0-f0e6605873ce.jpg",
-      alt: "Floral divider with delicate pink and white flowers arranged horizontally",
+      type: "video",
+      src: "https://ak03-video-cdn.slidely.com/media/videos/65/ce/65cea674dc43a15e83b3a82273634857-720p-preview.mp4",
     },
     {
-      src: "https://storage.googleapis.com/a1aa/image/f197a4d8-9450-44b8-82ef-a5b3164a382d.jpg",
-      alt: "Decorative floral border with soft pastel flowers and green leaves stretching horizontally",
+      type: "image",
+      src: "https://i2.ppvise.site/gimg/c07fa6dc15.jpg",
+      alt: "Decorative floral border with pastel flowers",
     },
   ];
 
@@ -62,7 +64,7 @@ const WeddingIntro = () => {
       {/* Background Decorative Image */}
       <div className="absolute bottom-0 left-0 w-full pointer-events-none select-none">
         <img
-          alt="Decorative floral border with soft pastel flowers and green leaves stretching horizontally"
+          alt="Decorative floral border"
           className="w-full object-cover"
           height="600"
           src="https://storage.googleapis.com/a1aa/image/f197a4d8-9450-44b8-82ef-a5b3164a382d.jpg"
@@ -109,16 +111,30 @@ const WeddingIntro = () => {
           className="relative w-full max-w-md md:max-w-lg lg:max-w-xl border border-[#ECECEC] shadow-md overflow-hidden rounded-md z-10"
           id="carousel"
         >
-          <img
-            alt={images[currentIndex].alt}
-            className={`w-full h-auto transition-opacity duration-500 ease-in-out ${
-              fade ? "opacity-0" : "opacity-100"
-            }`}
-            height="500"
-            loading="lazy"
-            src={images[currentIndex].src}
-            width="800"
-          />
+          {images[currentIndex].type === "image" ? (
+            <img
+              key={currentIndex}
+              alt={images[currentIndex].alt || ""}
+              className={`w-full h-auto transition-opacity duration-500 ease-in-out ${
+                fade ? "opacity-0" : "opacity-100"
+              }`}
+              src={images[currentIndex].src}
+              loading="lazy"
+            />
+          ) : (
+            <video
+              key={currentIndex}
+              src={images[currentIndex].src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`w-full h-auto object-cover transition-opacity duration-500 ease-in-out ${
+                fade ? "opacity-0" : "opacity-100"
+              }`}
+            />
+          )}
+
           {/* Navigation Buttons */}
           <div className="absolute bottom-0 right-0 bg-[#2C3E50] flex items-center justify-center gap-6 px-6 py-4 cursor-pointer select-none">
             <button

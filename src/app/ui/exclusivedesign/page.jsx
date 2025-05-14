@@ -6,14 +6,17 @@ const ExclusiveDesign = () => {
   return (
     <div className="bg-[#FAF9F8] font-['Playfair_Display'] w-full">
       <div className="flex flex-col md:flex-row w-full mx-0 md:mx-auto space-y-6 md:space-y-0 md:space-x-6 bg-white p-6 rounded-lg shadow-lg relative">
-        
+
         {/* Image Section */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <img
-            src="https://storage.googleapis.com/a1aa/image/8fde0493-e1c7-4b74-a65f-e749f933d2f5.jpg"
-            alt="White flowers in glass vases with green leaves and wine glasses on a table"
-            className="object-cover object-center rounded-lg w-full max-w-md h-auto"
-          />
+          <video
+            src="https://ak02-video-cdn.slidely.com/media/videos/13/7d/137dada12fdfb3da4dfb5998bf800c99-720p-preview.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="rounded-lg w-full max-w-md h-auto object-cover"
+          ></video>
         </div>
 
         {/* Content Section */}
