@@ -61,7 +61,7 @@ const WeddingIntro = () => {
             That Capture the Imagination
           </h1>
           <img
-            src="https://storage.googleapis.com/a1aa/image/a7ab97e5-057c-4059-14e7-f5123b84c304.jpg"
+            src="/images/floral.jpg"
             alt="Floral Divider"
             width="80"
             height="20"
