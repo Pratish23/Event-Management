@@ -2,10 +2,10 @@ import React from "react";
 
 const WeddingUpdates = () => {
   const galleryImages = [
-    "https://storage.googleapis.com/a1aa/image/7ead868a-862a-4bae-1762-6fcaeed46131.jpg",
-    "https://storage.googleapis.com/a1aa/image/4301bdd8-a9a4-4d52-4c31-c2cd2d8d8fdf.jpg",
-    "https://storage.googleapis.com/a1aa/image/d6a9272e-6b85-411c-1294-c1d1a634c08d.jpg",
-    "https://storage.googleapis.com/a1aa/image/55707a93-665e-4bf1-47d3-7b61a42a0fa3.jpg",
+    "/images/weddingUpdates.jpg",
+    "/images/weddingUpdates2.jpg",
+    "/images/weddingUpdates3.jpg",
+    "/images/weddingUpdates4.jpg",
   ];
 
   return (

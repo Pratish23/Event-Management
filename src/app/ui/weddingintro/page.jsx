@@ -23,28 +23,7 @@ const WeddingIntro = () => {
   const [fade, setFade] = useState(false);
   const intervalRef = useRef(null);
 
-  const handlePrevClick = () => {
-    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-    setFade(true);
-    setTimeout(() => {
-      setCurrentIndex(newIndex);
-      setFade(false);
-    }, 300);
-    resetInterval();
-  };
-
-  const handleNextClick = () => {
-    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-    setFade(true);
-    setTimeout(() => {
-      setCurrentIndex(newIndex);
-      setFade(false);
-    }, 300);
-    resetInterval();
-  };
-
-  const resetInterval = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
+  useEffect(() => {
     intervalRef.current = setInterval(() => {
       setFade(true);
       setTimeout(() => {
@@ -52,10 +31,7 @@ const WeddingIntro = () => {
         setFade(false);
       }, 300);
     }, 5000);
-  };
 
-  useEffect(() => {
-    resetInterval();
     return () => clearInterval(intervalRef.current);
   }, []);
 
@@ -67,7 +43,7 @@ const WeddingIntro = () => {
           alt="Decorative floral border"
           className="w-full object-cover"
           height="600"
-          src="https://storage.googleapis.com/a1aa/image/f197a4d8-9450-44b8-82ef-a5b3164a382d.jpg"
+          src="images/byter34.jpg"
           style={{ height: "600px" }}
           width="1920"
         />
@@ -111,48 +87,42 @@ const WeddingIntro = () => {
           className="relative w-full max-w-md md:max-w-lg lg:max-w-xl border border-[#ECECEC] shadow-md overflow-hidden rounded-md z-10"
           id="carousel"
         >
-          {images[currentIndex].type === "image" ? (
-            <img
-              key={currentIndex}
-              alt={images[currentIndex].alt || ""}
-              className={`w-full h-auto transition-opacity duration-500 ease-in-out ${
-                fade ? "opacity-0" : "opacity-100"
-              }`}
-              src={images[currentIndex].src}
-              loading="lazy"
-            />
-          ) : (
-            <video
-              key={currentIndex}
-              src={images[currentIndex].src}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className={`w-full h-auto object-cover transition-opacity duration-500 ease-in-out ${
-                fade ? "opacity-0" : "opacity-100"
-              }`}
-            />
-          )}
+          <div className="w-full h-[400px]">
+            {images[currentIndex].type === "image" ? (
+              <img
+                key={currentIndex}
+                alt={images[currentIndex].alt || ""}
+                src={images[currentIndex].src}
+                className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+                  fade ? "opacity-0" : "opacity-100"
+                }`}
+                loading="lazy"
+              />
+            ) : (
+              <video
+                key={currentIndex}
+                src={images[currentIndex].src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className={`w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+                  fade ? "opacity-0" : "opacity-100"
+                }`}
+              />
+            )}
+          </div>
 
-          {/* Navigation Buttons */}
-          <div className="absolute bottom-0 right-0 bg-[#2C3E50] flex items-center justify-center gap-6 px-6 py-4 cursor-pointer select-none">
-            <button
-              aria-label="Previous Image"
-              className="focus:outline-none"
-              type="button"
-              onClick={handlePrevClick}
-            >
-              <i className="fas fa-chevron-left text-white text-lg"></i>
-            </button>
-            <button
-              aria-label="Next Image"
-              className="focus:outline-none"
-              type="button"
-              onClick={handleNextClick}
-            >
-              <i className="fas fa-chevron-right text-white text-lg"></i>
-            </button>
+          {/* Dots Indicator */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+            {images.map((_, index) => (
+              <div
+                key={index}
+                className={`w-2 h-2 rounded-full ${
+                  index === currentIndex ? "bg-white" : "bg-gray-400"
+                }`}
+              />
+            ))}
           </div>
         </section>
       </main>
