@@ -10,7 +10,7 @@ const WeddingIntro = () => {
     },
     {
       type: "video",
-      src: "https://ak03-video-cdn.slidely.com/media/videos/65/ce/65cea674dc43a15e83b3a82273634857-720p-preview.mp4",
+      src: "video/hall.mp4",
     },
     {
       type: "image",

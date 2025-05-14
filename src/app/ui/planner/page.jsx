@@ -15,8 +15,8 @@ const apiData = [
     button: "Book Your Slot",
     images: [
       "/images/b1.jpg",
-      "/images/b2.jpg",
       "/images/b3.jpg",
+      "/images/b2.jpg",
     ]
   },
   {
