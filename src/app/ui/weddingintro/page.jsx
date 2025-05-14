@@ -14,7 +14,7 @@ const WeddingIntro = () => {
     },
     {
       type: "image",
-      src: "https://i2.ppvise.site/gimg/c07fa6dc15.jpg",
+      src: "images/saveimage24.jpg",
       alt: "Decorative floral border with pastel flowers",
     },
   ];
